@@ -15,16 +15,19 @@ MLX_LIB = -L$(MLX_DIR) -lmlx -lX11 -lXext
 MLX_INC = -I$(MLX_DIR)
 
 # Source files
-SRCS =	$(SRC_DIR)/so_long.c \
-		$(GNL_DIR)/get_next_line.c \
-		$(GNL_DIR)/get_next_line_utils.c \
-		$(LIBFT_DIR)/libft_utils.c \
-		$(LIBFT_DIR)/ft_printf.c\
-		$(SRC_DIR)/map_controls_1.c \
-		$(SRC_DIR)/free.c \
-		$(SRC_DIR)/get_location.c \
-		$(SRC_DIR)/map_controls_2.c \
-		$(SRC_DIR)/take_off.c \
+SRCS = $(SRC_DIR)/so_long.c \
+	   $(SRC_DIR)/map_controls_1.c \
+	   $(SRC_DIR)/map_controls_2.c \
+	   $(SRC_DIR)/free.c \
+	   $(SRC_DIR)/entities.c \
+	   $(SRC_DIR)/get_location.c \
+	   $(SRC_DIR)/move.c \
+	   $(SRC_DIR)/take_off.c \
+	   $(SRC_DIR)/rendering.c \
+	   $(GNL_DIR)/get_next_line.c \
+	   $(GNL_DIR)/get_next_line_utils.c \
+	   $(LIBFT_DIR)/libft_utils.c \
+	   $(LIBFT_DIR)/ft_printf.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:08:14 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/19 19:24:15 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/20 13:33:23 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_error(char *str)
 	return (0);
 }
 
-static void	write_map(t_data *data)
+/*static void	write_map(t_data *data)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ static void write_map_copy(t_data *data)
 		ft_printf("%s\n", data->map->map_copy[i]);
 		i++;
 	}
-}
+}*/
 
 int	take_off(t_data *data, char *map_name)
 {
@@ -60,9 +60,8 @@ int	take_off(t_data *data, char *map_name)
 	if (is_entities_valid(data))
 		return (ft_error("Invalid entities"), 1);
 	get_entities_location(data);
-	write_map(data);
-	printf("\n");
-	printf("\n");
-	write_map_copy(data);
+	flood_fill(data, data->entity.player_x, data->entity.player_y);
+	if (is_map_valid(data))
+		return (ft_error("Invalid path int map"), 1);
 	return (0);
 }

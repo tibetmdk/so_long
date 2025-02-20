@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/19 19:28:26 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/20 16:06:44 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,31 +70,42 @@ typedef struct  s_data
 	t_entity	entity;
 }               t_data;
 
-int ft_strcmp(const char *s1, const char *s2);
-int	ft_strlen(char *str);
-int	ft_printf(const char *str, ...);
+//------------- libft_utils -------------//
+char	*ft_strrchr(char *s, int c);
+int		ft_strlen(char *str);
+void	ft_putstr(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_printf(const char *str, ...);
 
-
+//------------- get_next_line_utils -------------//
 char	*get_next_line(int fd);
 
-
-
-int	name_control(char *str);
-int	get_size(char *map_name, t_data *data);
-int	ft_error(char *str);
-int	take_off(t_data *data, char *map_name);
-int	get_map(char *map_name, t_data *data);
-int	get_map_to_map_copy(t_data *data);
-int	is_map_rectangular(t_data *data);
-int	is_map_surrounded(t_data *data);
-int	is_entities_valid(t_data *data);
-int	count_collectibles(t_data *data);
-
-
+//------------- so_long -------------//
+int		name_control(char *map_name);
+int		get_size(char *map_name, t_data *data);
+int		get_map(char *map_name, t_data *data);
+int		is_map_surrounded(t_data *data);
+int		is_map_rectangular(t_data *data);
+int		is_entities_valid(t_data *data);
 void	get_entities_location(t_data *data);
+int		get_map_to_map_copy(t_data *data);
+void	flood_fill(t_data *data, int x, int y);
+int		is_map_valid(t_data *data);
+int		take_off(t_data *data, char *map_name);
+int		ft_error(char *str);
+int		key_hook(int keycode, t_data *data);
+void	render_map(t_data *data);
+int		check_collectibles(t_data *data, int x, int y);
+int		count_collectibles(t_data *data);
+void	move_left(t_data *data);
+void	move_up(t_data *data);
+void	move_right(t_data *data);
+void	move_down(t_data *data);
 void	free_all(t_data *data);
 void	free_map(t_data *data);
 void	free_entities(t_data *data);
 void	free_textures(t_data *data);
+void	free_all(t_data *data);
+int		close_game(t_data *data);
 
 #endif
