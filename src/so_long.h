@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 16:06:44 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/20 18:48:40 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct s_entity
 	int		exit_x;
 	int		exit_y;
 	int		**collectibles;
-}				t_entity;  
+}				t_entity;
 
-typedef struct  s_data
+typedef struct s_data
 {
 	void		*mlx;
 	void		*win;
@@ -68,7 +68,7 @@ typedef struct  s_data
 	int			exit_count;
 	t_map		*map;
 	t_entity	entity;
-}               t_data;
+}				t_data;
 
 //------------- libft_utils -------------//
 char	*ft_strrchr(char *s, int c);

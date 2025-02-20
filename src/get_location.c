@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:17:47 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/19 19:21:18 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/20 18:09:18 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,3 @@ void	get_entities_location(t_data *data)
 	get_exit_location(data);
 	get_collectibles_location(data);
 }
-
