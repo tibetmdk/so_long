@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:17:47 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 18:09:18 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:38:08 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,21 @@ static void	get_collectibles_location(t_data *data)
 	if (!data->entity.collectibles)
 		return (free_all(data));
 	i = -1;
-	while (++i < data->map->height && (j = -1))
+	while (++i < data->map->height)
+	{
+		j = -1;
 		while (++j < data->map->width)
+		{
 			if (data->map->map[i][j] == 'C')
 			{
 				data->entity.collectibles[k] = malloc(sizeof(int) * 2);
 				if (!data->entity.collectibles[k])
 					return (free_collectibles(data, k));
 				data->entity.collectibles[k][0] = j;
-				data->entity.collectibles[k][1] = i;
-				printf("Collectible found at: [%d, %d]\n", j, i);
-				k++;
-			}
+				data->entity.collectibles[k++][1] = i;
+			}	
+		}	
+	}
 }
 
 void	get_entities_location(t_data *data)

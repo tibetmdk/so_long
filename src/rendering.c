@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:48:35 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 19:07:23 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:35:56 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,26 @@ void	render_map(t_data *data)
 	int		x;
 	int		y;
 	char	tile;
+	void	*img;
 
-	y = 0;
-	while (y < data->map->height)
+	y = -1;
+	while (++y < data->map->height)
 	{
-		x = 0;
-		while (x < data->map->width)
+		x = -1;
+		while (++x < data->map->width)
 		{
 			tile = data->map->map[y][x];
-			mlx_put_image_to_window(data->mlx,
-				data->win, data->bg_img, x * 32, y * 32);
+			img = data->bg_img;
 			if (tile == '1')
-				mlx_put_image_to_window(data->mlx,
-					data->win, data->wall_img, x * 32, y * 32);
+				img = data->wall_img;
 			else if (tile == 'X')
-				mlx_put_image_to_window(data->mlx,
-					data->win, data->exit_img, x * 32, y * 32);
+				img = data->exit_img;
 			else if (tile == 'C')
-				mlx_put_image_to_window(data->mlx,
-					data->win, data->collectible_img, x * 32, y * 32);
+				img = data->collectible_img;
 			else if (tile == 'P')
-				mlx_put_image_to_window(data->mlx,
-					data->win, data->ship_right, x * 32, y * 32);
-			x++;
+				img = data->ship_right;
+			mlx_put_image_to_window(data->mlx, data->win, img, x * 32, y * 32);
 		}
-		y++;
 	}
 }
 

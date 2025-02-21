@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:08:14 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 13:33:23 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:21:12 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int	take_off(t_data *data, char *map_name)
 	flood_fill(data, data->entity.player_x, data->entity.player_y);
 	if (is_map_valid(data))
 		return (ft_error("Invalid path int map"), 1);
+	data->mlx = mlx_init();
 	return (0);
 }

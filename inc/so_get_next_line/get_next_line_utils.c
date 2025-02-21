@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:05:37 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/12 20:06:22 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:56:26 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s2)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * (ft_get_strlen(s1) + ft_get_strlen(s2) + 1));
+	res = (char *)malloc((ft_get_strlen(s1) + ft_get_strlen(s2) + 1));
 	if (!res)
 		return (NULL);
 	i = -1;

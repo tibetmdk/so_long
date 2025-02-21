@@ -6,35 +6,45 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:06:25 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 18:50:21 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 15:21:06 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	initializations_1(t_data *d)
+static void	initializations_1(t_data *data)
 {
-	char	*p[] = {"./textures/ship_right.xpm", "./textures/ship_left.xpm",
-		"./textures/ship_up.xpm", "./textures/ship_down.xpm",
-		"./textures/background.xpm", "./textures/wall.xpm",
-		"./textures/exit.xpm", "./textures/collectible.xpm",
-		"./textures/exit_ship.xpm"};
-	void	**img[] = {&d->ship_right, &d->ship_left, &d->ship_up,
-		&d->ship_down, &d->bg_img, &d->wall_img, &d->exit_img,
-		&d->collectible_img, &d->exit_ship};
-	int		*w[] = {&d->player_img_width, &d->player_img_width,
-		&d->player_img_width, &d->player_img_width, &d->bg_img_width,
-		&d->wall_img_width, &d->exit_img_width, &d->collectible_img_width,
-		&d->player_img_width};
-	int		*h[] = {&d->player_img_height, &d->player_img_height,
-		&d->player_img_height, &d->player_img_height, &d->bg_img_height,
-		&d->wall_img_height, &d->exit_img_height, &d->collectible_img_height,
-		&d->player_img_height};
-	int		i;
+	data->ship_right = mlx_xpm_file_to_image(data->mlx,
+			"./textures/ship_right.xpm", &data->player_img_height,
+			&data->player_img_height);
+	data->ship_left = mlx_xpm_file_to_image(data->mlx,
+			"./textures/ship_left.xpm", &data->player_img_height,
+			&data->player_img_height);
+	data->ship_up = mlx_xpm_file_to_image(data->mlx,
+			"./textures/ship_up.xpm", &data->player_img_height,
+			&data->player_img_height);
+	data->ship_down = mlx_xpm_file_to_image(data->mlx,
+			"./textures/ship_down.xpm", &data->player_img_height,
+			&data->player_img_height);
+	data->bg_img = mlx_xpm_file_to_image(data->mlx,
+			"./textures/background.xpm", &data->bg_img_height,
+			&data->bg_img_width);
+	data->wall_img = mlx_xpm_file_to_image(data->mlx,
+			"./textures/wall.xpm", &data->wall_img_height,
+			&data->wall_img_width);
+}
 
-	i = -1;
-	while (++i < 9)
-		*(void **)img[i] = mlx_xpm_file_to_image(d->mlx, p[i], h[i], w[i]);
+static void	initializations_2(t_data *data)
+{
+	data->exit_img = mlx_xpm_file_to_image(data->mlx,
+			"./textures/exit.xpm", &data->exit_img_height,
+			&data->exit_img_width);
+	data->collectible_img = mlx_xpm_file_to_image(data->mlx,
+			"./textures/collectible.xpm", &data->collectible_img_height,
+			&data->collectible_img_width);
+	data->exit_ship = mlx_xpm_file_to_image(data->mlx,
+			"./textures/exit_ship.xpm", &data->player_img_height,
+			&data->player_img_width);
 }
 
 int	main(int ac, char **av)
@@ -48,8 +58,8 @@ int	main(int ac, char **av)
 			return (free_all(data), 1);
 		if (take_off(data, av[1]) == 1)
 			return (free_all(data), 1);
-		data->mlx = mlx_init();
 		initializations_1(data);
+		initializations_2(data);
 		data->win = mlx_new_window(data->mlx, data->map->width \
 		* 32, data->map->height * 32, "so_long");
 		if (!data->mlx)
