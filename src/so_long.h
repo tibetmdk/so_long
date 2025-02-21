@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 18:48:40 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 20:05:15 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_data
 	int			player_img_width;
 	int			player_img_height;
 	int			collectible_count;
+	int			move_count;
 	int			collected;
 	int			player_count;
 	int			exit_count;
@@ -85,7 +86,7 @@ int		name_control(char *map_name);
 int		get_size(char *map_name, t_data *data);
 int		get_map(char *map_name, t_data *data);
 int		is_map_surrounded(t_data *data);
-int		is_map_rectangular(t_data *data);
+int		is_map_rectangular(char *map_name, t_data *data);
 int		is_entities_valid(t_data *data);
 void	get_entities_location(t_data *data);
 int		get_map_to_map_copy(t_data *data);
@@ -107,5 +108,11 @@ void	free_entities(t_data *data);
 void	free_textures(t_data *data);
 void	free_all(t_data *data);
 int		close_game(t_data *data);
+void	count_move(t_data *data);
+void	initializations_1(t_data *data);
+void	initializations_2(t_data *data);
+void	init_pointers(t_data *data);
+void	init_values(t_data *data);
+void	get_width(t_data *data, char *line);
 
 #endif

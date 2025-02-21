@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:24:07 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 16:04:36 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 21:48:42 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ int	get_size(char *map_name, t_data *data)
 
 	data->map = malloc(sizeof(t_map));
 	if (!data->map)
-		return (free(data->map), 1);
+		return (1);
+	data->map->height = 0;
+	data->map->width = 0;
+	data->map->map = NULL;
+	data->map->map_copy = NULL;
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 		return (free(data->map), 1);
 	line = get_next_line(fd);
 	while (line)
 	{
-		data->map->width = ft_strlen(line);
+		get_width(data, line);
 		data->map->height++;
 		free(line);
 		line = get_next_line(fd);
@@ -49,9 +53,18 @@ int	get_size(char *map_name, t_data *data)
 	close(fd);
 	if (data->map->height == 0 || data->map->width == 0)
 		return (free(data->map), 1);
-	printf("width = %d\n", data->map->width);
-	printf("height = %d\n", data->map->height);
 	return (0);
+}
+
+void	get_width(t_data *data, char *line)
+{
+	int	len;
+
+	len = ft_strlen(line);
+	if (line[len - 1] == '\n')
+		len--;
+	if (data->map->height == 0)
+		data->map->width = len;
 }
 
 int	get_map(char *map_name, t_data *data)
@@ -63,40 +76,21 @@ int	get_map(char *map_name, t_data *data)
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	data->map->map = (char **)malloc(sizeof(char *) * data->map->height);
+	if (!data->map || data->map->height <= 0)
+		return (1);
+	data->map->map = (char **)malloc(sizeof(char *) * (data->map->height + 1));
 	if (!data->map->map)
 		return (free(data->map), 1);
 	i = 0;
 	line = get_next_line(fd);
-	while (line)
+	while (line && i < data->map->height)
 	{
 		data->map->map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
-	close (fd);
-	return (0);
-}
-
-int	is_map_rectangular(t_data *data)
-{
-	int		i;
-	int		row_width;
-	char	**map;
-
-	map = data->map->map;
-	i = 0;
-	if (data->map->width == data->map->height)
-		return (1);
-	while (i < data->map->height)
-	{
-		row_width = 0;
-		while (map[i][row_width] != '\0' && map[i][row_width] != '\n')
-			row_width++;
-		if (row_width != data->map->width)
-			return (1);
-		i++;
-	}
+	data->map->map[i] = NULL;
+	close(fd);
 	return (0);
 }
 

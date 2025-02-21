@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:08:14 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 15:21:12 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 20:06:53 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,6 @@ int	ft_error(char *str)
 	return (0);
 }
 
-/*static void	write_map(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->map->height)
-	{
-		ft_printf("%s", data->map->map[i]);
-		i++;
-	}
-}
-
-static void write_map_copy(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->map->height)
-	{
-		ft_printf("%s\n", data->map->map_copy[i]);
-		i++;
-	}
-}*/
-
 int	take_off(t_data *data, char *map_name)
 {
 	if (name_control(map_name))
@@ -51,7 +27,7 @@ int	take_off(t_data *data, char *map_name)
 		return (ft_error("Invalid map size"), 1);
 	if (get_map(map_name, data))
 		return (ft_error("Invalid map"), 1);
-	if (is_map_rectangular(data))
+	if (is_map_rectangular(map_name, data))
 		return (ft_error("Map is not rectangular"), 1);
 	if (is_map_surrounded(data))
 		return (ft_error("Map is not surrounded by walls"), 1);
@@ -64,5 +40,7 @@ int	take_off(t_data *data, char *map_name)
 	if (is_map_valid(data))
 		return (ft_error("Invalid path int map"), 1);
 	data->mlx = mlx_init();
+	initializations_1(data);
+	initializations_2(data);
 	return (0);
 }

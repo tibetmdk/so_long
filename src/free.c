@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:24:43 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 18:08:37 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 21:49:14 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@ void	free_map(t_data *data)
 {
 	int	i;
 
-	i = 0;
-	if (!data->map)
+	if (!data || !data->map)
 		return ;
 	if (data->map->map)
 	{
+		i = 0;
 		while (i < data->map->height)
 			free(data->map->map[i++]);
 		free(data->map->map);
 	}
-	i = 0;
 	if (data->map->map_copy)
 	{
+		i = 0;
 		while (i < data->map->height)
 			free(data->map->map_copy[i++]);
 		free(data->map->map_copy);
 	}
 	free(data->map);
+	data->map = NULL;
 }
 
 void	free_entities(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:17:47 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 15:38:08 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 17:22:31 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	get_player_location(t_data *data)
 			{
 				data->entity.player_x = j;
 				data->entity.player_y = i;
-				printf("Player found at: [%d, %d]\n", j, i);
 				return ;
 			}
 			j++;
@@ -51,14 +50,13 @@ static void	get_exit_location(t_data *data)
 			{
 				data->entity.exit_x = j;
 				data->entity.exit_y = i;
-				printf("Exit found at: [%d, %d]\n", j, i);
 				return ;
 			}
 			j++;
 		}
 		i++;
 	}
-	printf("ERROR: No exit found on the map!\n");
+	ft_error("No exit found!");
 	free_all(data);
 	exit(1);
 }

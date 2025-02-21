@@ -6,13 +6,13 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:06:25 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 15:21:06 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:24:36 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	initializations_1(t_data *data)
+void	initializations_1(t_data *data)
 {
 	data->ship_right = mlx_xpm_file_to_image(data->mlx,
 			"./textures/ship_right.xpm", &data->player_img_height,
@@ -34,7 +34,7 @@ static void	initializations_1(t_data *data)
 			&data->wall_img_width);
 }
 
-static void	initializations_2(t_data *data)
+void	initializations_2(t_data *data)
 {
 	data->exit_img = mlx_xpm_file_to_image(data->mlx,
 			"./textures/exit.xpm", &data->exit_img_height,
@@ -47,6 +47,46 @@ static void	initializations_2(t_data *data)
 			&data->player_img_width);
 }
 
+void	init_pointers(t_data *data)
+{
+	data->mlx = NULL;
+	data->win = NULL;
+	data->img = NULL;
+	data->ship_right = NULL;
+	data->ship_left = NULL;
+	data->ship_up = NULL;
+	data->ship_down = NULL;
+	data->bg_img = NULL;
+	data->wall_img = NULL;
+	data->exit_img = NULL;
+	data->exit_ship = NULL;
+	data->collectible_img = NULL;
+	data->entity.collectibles = NULL;
+}
+
+void	init_values(t_data *data)
+{
+	data->bg_img_width = 0;
+	data->bg_img_height = 0;
+	data->collectible_img_width = 0;
+	data->collectible_img_height = 0;
+	data->exit_img_width = 0;
+	data->exit_img_height = 0;
+	data->wall_img_width = 0;
+	data->wall_img_height = 0;
+	data->player_img_width = 0;
+	data->player_img_height = 0;
+	data->collectible_count = 0;
+	data->move_count = 0;
+	data->collected = 0;
+	data->player_count = 0;
+	data->exit_count = 0;
+	data->entity.player_x = 0;
+	data->entity.player_y = 0;
+	data->entity.exit_x = 0;
+	data->entity.exit_y = 0;
+}
+
 int	main(int ac, char **av)
 {
 	t_data	*data;
@@ -56,10 +96,10 @@ int	main(int ac, char **av)
 		data = (t_data *)malloc(sizeof(t_data));
 		if (!data)
 			return (free_all(data), 1);
+		init_values(data);
+		init_pointers(data);
 		if (take_off(data, av[1]) == 1)
 			return (free_all(data), 1);
-		initializations_1(data);
-		initializations_2(data);
 		data->win = mlx_new_window(data->mlx, data->map->width \
 		* 32, data->map->height * 32, "so_long");
 		if (!data->mlx)
