@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:01:22 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/22 14:04:36 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:32:59 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	is_map_valid(t_data *data)
 
 	if (!data || !data->map || !data->map->map_copy)
 	{
-		ft_error("ERROR: data, map veya map_copy NULL!\n");
+		ft_error("data, map veya map_copy NULL!");
 		return (1);
 	}
 	i = 0;
