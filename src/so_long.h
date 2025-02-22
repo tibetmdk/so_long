@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/22 15:21:11 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 19:02:54 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,12 @@ typedef struct s_data
 	t_entity	entity;
 }				t_data;
 
-//------------- libft_utils -------------//
 char	*ft_strchr(char *s, int c);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_printf(const char *str, ...);
-
-//------------- get_next_line_utils -------------//
 char	*get_next_line(int fd);
-
-//------------- so_long -------------//
 int		name_control(char *map_name);
 int		get_size(char *map_name, t_data *data);
 int		get_map(char *map_name, t_data *data);

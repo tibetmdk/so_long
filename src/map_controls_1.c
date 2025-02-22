@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:24:07 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 21:48:42 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 19:14:44 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	get_size(char *map_name, t_data *data)
 	data->map->map_copy = NULL;
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
-		return (free(data->map), 1);
+		return (1);
 	line = get_next_line(fd);
 	while (line)
 	{

@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:06:25 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/22 18:25:45 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 19:43:36 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	init_values(t_data *data)
 	data->entity.player_y = 0;
 	data->entity.exit_x = 0;
 	data->entity.exit_y = 0;
+	init_pointers(data);
 }
 
 int	main(int ac, char **av)
@@ -97,7 +98,6 @@ int	main(int ac, char **av)
 		if (!data)
 			return (free_all(data), 1);
 		init_values(data);
-		init_pointers(data);
 		if (take_off(data, av[1]) == 1)
 			return (free_all(data), 1);
 		data->win = mlx_new_window(data->mlx, data->map->width \
@@ -115,5 +115,4 @@ int	main(int ac, char **av)
 	}
 	else
 		ft_error("wrong number of arguments!");
-	return (0);
 }

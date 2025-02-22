@@ -1,20 +1,14 @@
-# Compiler and flags
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# Directories
 SRC_DIR = src
 LIBFT_DIR = inc/libft
 GNL_DIR = inc/so_get_next_line
 MLX_DIR = mlx
 INC_DIR = inc
-
-# MiniLibX library settings
-# MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 MLX_LIB = -L$(MLX_DIR) -lmlx -lX11 -lXext
 MLX_INC = -I$(MLX_DIR)
 
-# Source files
 SRCS = $(SRC_DIR)/so_long.c \
 	   $(SRC_DIR)/map_controls_1.c \
 	   $(SRC_DIR)/map_controls_2.c \
@@ -29,19 +23,14 @@ SRCS = $(SRC_DIR)/so_long.c \
 	   $(LIBFT_DIR)/libft_utils.c \
 	   $(LIBFT_DIR)/ft_printf.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:.c=.o)
 
-# Output
 NAME = so_long
 
-# Compilation rules
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_LIB)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(MLX_INC) -I$(INC_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
