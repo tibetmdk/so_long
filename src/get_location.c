@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:17:47 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 17:22:31 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:04:18 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	get_exit_location(t_data *data)
 		j = 0;
 		while (j < data->map->width)
 		{
-			if (data->map->map[i][j] == 'X')
+			if (data->map->map[i][j] == 'E')
 			{
 				data->entity.exit_x = j;
 				data->entity.exit_y = i;

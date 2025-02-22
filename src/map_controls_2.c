@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:01:22 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 18:34:55 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:04:36 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	is_entities_valid(t_data *data)
 		{
 			if (data->map->map[i][j] == 'C')
 				data->collectible_count++;
-			else if (data->map->map[i][j] == 'X')
+			else if (data->map->map[i][j] == 'E')
 				data->exit_count++;
 			else if (data->map->map[i][j] == 'P')
 				data->player_count++;

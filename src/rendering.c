@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:48:35 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 15:35:56 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:05:01 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	render_map(t_data *data)
 			img = data->bg_img;
 			if (tile == '1')
 				img = data->wall_img;
-			else if (tile == 'X')
+			else if (tile == 'E')
 				img = data->exit_img;
 			else if (tile == 'C')
 				img = data->collectible_img;
