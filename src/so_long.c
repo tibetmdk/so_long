@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:06:25 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 19:24:36 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 18:25:45 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,7 @@ int	main(int ac, char **av)
 		mlx_loop(data->mlx);
 		free_all(data);
 	}
+	else
+		ft_error("wrong number of arguments!");
 	return (0);
 }
