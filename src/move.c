@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:54:17 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 19:29:25 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:28:54 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	check_conditions(t_data *data)
 {
 	if (data->collected == data->collectible_count)
 	{
-		printf("You won!\n");
+		ft_printf("You won!\n");
 		free_all(data);
 		exit(0);
 		return (1);
 	}
 	else
 	{
-		printf("You need to collect all collectibles!\n");
+		ft_printf("You need to collect all collectibles!\n");
 	}
 	return (0);
 }

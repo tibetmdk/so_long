@@ -6,14 +6,13 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 20:05:15 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:28:21 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
