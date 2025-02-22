@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:04:15 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 21:15:00 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:23:43 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*read_line(int fd, char *remain)
 	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	while (!ft_strchr(remain, '\n') && readed != 0)
+	while (!ft_get_strchr(remain, '\n') && readed != 0)
 	{
 		readed = read(fd, buffer, BUFFER_SIZE);
 		if (readed == -1)

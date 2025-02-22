@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:08:14 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 20:06:53 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:25:40 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	take_off(t_data *data, char *map_name)
 		return (ft_error("Map is not rectangular"), 1);
 	if (is_map_surrounded(data))
 		return (ft_error("Map is not surrounded by walls"), 1);
+	if (invalid_entities(data->map))
+		return (ft_error("invalid entities"), 1);
 	if (get_map_to_map_copy(data))
 		return (ft_error("Invalid map copy"), 1);
 	if (is_entities_valid(data))

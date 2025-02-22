@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:23:45 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/22 14:28:21 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:21:11 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_data
 }				t_data;
 
 //------------- libft_utils -------------//
-char	*ft_strrchr(char *s, int c);
+char	*ft_strchr(char *s, int c);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
@@ -113,5 +113,6 @@ void	initializations_2(t_data *data);
 void	init_pointers(t_data *data);
 void	init_values(t_data *data);
 void	get_width(t_data *data, char *line);
+int		invalid_entities(t_map *map);
 
 #endif

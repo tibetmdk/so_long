@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:04:43 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 21:00:51 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:23:15 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # endif
 
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strchr(char *s, int c);
+char	*ft_get_strchr(char *s, int c);
 int		ft_get_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);

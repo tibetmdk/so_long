@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:11:22 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 22:00:07 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:25:14 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,26 @@ int	is_map_rectangular(char *map_name, t_data *data)
 	result = check_line_width(fd, line, data);
 	close(fd);
 	return (result);
+}
+
+int	invalid_entities(t_map *map)
+{
+	int		i;
+	int		j;
+	char	*valid_chars;
+
+	i = 0;
+	valid_chars = "01CEP";
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			if (!ft_strchr(valid_chars, map->map[i][j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

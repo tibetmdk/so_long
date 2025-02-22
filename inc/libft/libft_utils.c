@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:58:46 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/20 17:49:25 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:20:41 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,21 @@ char	*ft_strrchr(char *s, int c)
 			return ((char *)(s + i));
 		i--;
 	}
+	return (0);
+}
+
+char	*ft_strchr(char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
 	return (0);
 }

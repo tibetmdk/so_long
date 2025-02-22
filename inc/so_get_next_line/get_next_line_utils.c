@@ -6,7 +6,7 @@
 /*   By: tmidik <tibetmdk@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:05:37 by tmidik            #+#    #+#             */
-/*   Updated: 2025/02/21 21:00:42 by tmidik           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:22:49 by tmidik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_get_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_get_strchr(char *s, int c)
 {
 	if (!s)
 		return (NULL);
