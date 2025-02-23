@@ -103,10 +103,10 @@ int	main(int ac, char **av)
 		data->win = mlx_new_window(data->mlx, data->map->width \
 		* 32, data->map->height * 32, "so_long");
 		if (!data->mlx)
-			return (ft_error("MiniLibX initialization failed"), 1);
+			return (ft_error("MiniLibX initialization failed"), free_all(data),1);
 		if (!data->ship_right || !data->bg_img || !data->wall_img
 			|| !data->exit_img || !data->collectible_img)
-			return (ft_error("One or more XPM images failed to load"), 1);
+			return (ft_error("One or more XPM images failed to load"), free_all(data),1);
 		render_map(data);
 		mlx_hook(data->win, 17, 0, close_game, data);
 		mlx_key_hook(data->win, key_hook, data);
